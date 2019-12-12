@@ -1,0 +1,10 @@
+server:
+  port: 8081
+spring:
+  application: service-search
+elasticsearch:
+  hostlist: 119.3.49.192:9200
+logging:
+  level:
+    root: info
+debug: false
