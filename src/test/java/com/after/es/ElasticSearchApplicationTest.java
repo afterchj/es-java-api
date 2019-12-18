@@ -11,6 +11,7 @@ import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.action.update.UpdateResponse;
+import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.xcontent.XContentType;
@@ -74,7 +75,7 @@ public class ElasticSearchApplicationTest {
         SearchRequest searchRequest = new SearchRequest("megacorp");
         searchRequest.types("employee").source(searchSourceBuilder);
         //3、client 执行查询
-        SearchResponse searchResponse = client.search(searchRequest);
+        SearchResponse searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);
         //4、打印结果
         SearchHits hits = searchResponse.getHits();
         for (SearchHit hit : hits) {
